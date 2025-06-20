@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduVision University</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #1c1f4c, #2c3e50, #1e272e, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 50, 0.85);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: #ffcc00;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      margin: 2rem auto;
+      max-width: 1100px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .section p {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .slider img {
+      height: 200px;
+      width: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+      scroll-snap-align: start;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .slider img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-pop {
+      background-color: #ffcc00;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 1.5rem auto 0;
+      font-weight: bold;
+    }
+
+    .btn-pop:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 15px #ffcc00b0;
+    }
+
+    footer {
+      background: rgba(0, 0, 50, 0.9);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .slider img {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo"><i class="fas fa-university"></i> EduVision</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#choose">Why Us</a></li>
+        <li><a href="#chairman">Chairman</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#sports">Sports</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+<section class="hero" style="background-image: url('first.jpg'); background-size: cover; background-position: center; position: relative;">
+  <div style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: rgba(0,0,0,0.6); z-index: 1;"></div>
+  <div style="position: relative; z-index: 2; text-align: center; padding: 2rem;">
+    <h1 style="font-size: 3.5rem; color: white; animation: fadeIn 2s ease-in-out;">Welcome to EduVision University</h1>
+    <p style="font-size: 1.2rem; color: #fff; margin-top: 1rem; animation: fadeIn 3s ease-in-out;">Empowering Minds, Creating Opportunities</p>
+  </div>
+</section>
+ 
+
+  <section id="about" class="section fade-section">
+    <h2>🏛 About EduVision</h2>
+    <p>EduVision is a world-class university focused on innovation and leadership.</p>
+    <div class="slider">
+      <img src="about.jpg" />
+      <img src="about2.jpg" />
+      <img src="about3.jpg" alt="">
+    </div>
+    <button class="btn-pop">Learn More</button>
+  </section>
+
+  <section id="programs" class="section fade-section">
+    <h2>🎓 Programs</h2>
+    <p>Explore our programs in CS, AI, Business, and Data Science.</p>
+    <div class="slider">
+      <img src="programs.jpg" />
+      <img src="programs2.jpg" />
+      <img src="program3.jpg"/>
+    </div>
+    <button class="btn-pop">View Courses</button>
+  </section>
+
+  <section id="choose" class="section fade-section">
+    <h2>🌟 Why Choose Us</h2>
+    <p>Modern campus, global exposure, job placement, and scholarships.</p>
+    <div class="slider">
+      <img src="why.jpg" />
+      <img src="why2.jpg" />
+      <img src="why3.jpg" alt="">
+    </div>
+    <button class="btn-pop">Discover More</button>
+  </section>
+
+  <section id="chairman" class="section fade-section">
+    <h2>👨‍💼 Chairman</h2>
+    <p>"We shape futures with education rooted in values and excellence."</p>
+    <div class="slider">
+      <img src="chairman.jpg" />
+    </div>
+    <button class="btn-pop">Read about Chairman</button>
+  </section>
+
+  <section id="achievements" class="section fade-section">
+    <h2>🏆 Achievements</h2>
+    <p>Ranked among top universities with 95% job placement and innovation awards.</p>
+    <div class="slider">
+      <img src="ach.jpg" />
+      <img src="ach3.jpg" />
+    </div>
+    <button class="btn-pop">See Achievements</button>
+  </section>
+
+  <section id="sports" class="section fade-section">
+    <h2>🏅 Sports & Scholarships</h2>
+    <p>We support sports talent and distribute Rs. 5 Crore in scholarships annually.</p>
+    <div class="slider">
+      <img src="sports.jpg" />
+      <img src="sports2.jpg" />
+      <img src="sports4.jpg" alt="">
+    </div>
+    <button class="btn-pop">Explore Benefits</button>
+  </section>
+
+  <section id="contact" class="section fade-section">
+    <h2>📞 Contact</h2>
+    <p>Email: info@eduvision.edu.pk | Phone: +92-42-1234567</p>
+    <div class="slider">
+      <h1>
+        Gmail:@example.com
+        Phone:068-0000
+      </h1>
+    </div>
+    <button class="btn-pop">Get in Touch</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 EduVision University. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll(".fade-section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
